@@ -66,28 +66,64 @@ function applyCream(input: HTMLInputElement): void {
 }
 
 function applySyrup(input: HTMLInputElement): void {
-  // TODO: implement this function
+  const syrup = document.querySelector<HTMLElement>(".syrup");
+  if (!syrup) {
+    return;
+  }
+  syrup.style.setProperty("--syrup-color", syrups[input.value]);
 }
 
 function setupSyrupListeners(): void {
-  // TODO: implement this function
+  const listen = document.querySelectorAll<HTMLInputElement>('input[name="syrup"]');
+  listen.forEach((i) => {
+    i.addEventListener("change", () => applySyrup(i));    
+  });
+  const checked = document.querySelector<HTMLInputElement>('input[name="syrup"]:checked');
+  if (checked) {
+    applySyrup(checked);
+  }
 }
 
 setupSyrupListeners();
 
 function setupCreamListeners(): void {
   // TODO: implement this function
+  const listen = document.querySelectorAll<HTMLInputElement>('input[name="cream"]');
+  listen.forEach((i) => {
+    i.addEventListener("change", () => applyCream(i));    
+  });
+  const checked = document.querySelector<HTMLInputElement>('input[name="cream"]:checked');
+  if (checked) {
+    applyCream(checked);
+  }
 }
+
 setupCreamListeners();
 
 function setupTemperatureListeners(): void {
   // TODO: implement this function
+  const listen = document.querySelectorAll<HTMLInputElement>('input[name="temperature"]');
+  listen.forEach((i) => {
+    i.addEventListener("change", () => applyTemperature(i));    
+  });
+  const checked = document.querySelector<HTMLInputElement>('input[name="temperature"]:checked');
+  if (checked) {
+    applyTemperature(checked);
+  }
 }
 
 setupTemperatureListeners();
 
 function setupBaseListeners(): void {
   // TODO: implement this function
+  const listen = document.querySelectorAll<HTMLInputElement>('input[name="base"]');
+  listen.forEach((i) => {
+    i.addEventListener("change", () => applyBase(i));    
+  });
+  const checked = document.querySelector<HTMLInputElement>('input[name="base"]:checked');
+  if (checked) {
+    applyBase(checked);
+  }
 }
 
 setupBaseListeners();
